@@ -1,6 +1,10 @@
 <?php
 
-	 include 'dc_config.php';
+   include 'dc_config.php';
+   
+   header("Cache-Control: no-cache, no-store, must-revalidate"); // limpa o cache
+	 header("Access-Control-Allow-Origin: *");
+	 header("Content-Type: application/json; charset=utf-8"); 
 	 
 	 // Check whether username or password is set from android	
      if(isset($_POST['username']) && isset($_POST['password']))
