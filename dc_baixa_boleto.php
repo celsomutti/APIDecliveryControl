@@ -10,7 +10,7 @@
 	  
 		  // Query database for row exist or not
       $sql = 'UPDATE expressas_boletos SET dom_recebido = 1, nom_usuario = :username WHERE 
-      num_linha_boleto = :linha and dom_boleto = 0';
+      num_linha_boleto = :linha and dom_recebido = 0';
       $stmt = $conn->prepare($sql);
       $stmt->bindParam(':linha', $linha, PDO::PARAM_STR);
       $stmt->bindParam(':username', $username, PDO::PARAM_STR);
