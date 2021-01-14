@@ -11,7 +11,7 @@
         // Query database for row exist or not
         $sql = 'SELECT COD_CADASTRO, COD_ENTREGADOR, NOM_FANTASIA, COD_AGENTE, DAT_CODIGO, DES_CHAVE, COD_GRUPO, 
         VAL_VERBA, NOM_EXECUTANTE, DOM_ATIVO, DAT_MANUTENCAO from tbcodigosentregadores 
-        where DES_CHAVE = :cpf;';
+        where DES_CHAVE = :cpf and COD_CADASTRO <> 0;';
 
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':cpf', $cpf, PDO::PARAM_STR);

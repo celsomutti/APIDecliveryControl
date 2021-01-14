@@ -11,13 +11,12 @@
          $datafim = $_POST['datafim'];
          		  
 		  // Query database for row exist or not
-          $sql = 'select tbentregas.cod_entregador as cod_entregador, tbentregas.val_verba_entregador as val_verba, 
+          $sql = 'select tbentregas.cod_cliente_empresa, tbentregas.cod_entregador as cod_entregador, tbentregas.val_verba_entregador as val_verba, 
           count(tbentregas.num_nossonumero) as qtd_entregas, tbentregas.num_extrato  
           from tbentregas
-          where tbentregas.cod_entregador = :entregador and tbentregas.dat_baixa between :dataini and :datafim
-          group by tbentregas.cod_entregador, tbentregas.val_verba_entregador;';
+          where tbentregas.cod_entregador in (' . $entregador . ') and tbentregas.dat_baixa between :dataini and :datafim
+          group by tbentregas.cod_cliente_empresa, tbentregas.cod_entregador, tbentregas.val_verba_entregador;';
           $stmt = $conn->prepare($sql);
-          $stmt->bindParam(':entregador', $entregador);
           $stmt->bindParam(':dataini', $dataini);
           $stmt->bindParam(':datafim', $datafim);
           $stmt->execute();
