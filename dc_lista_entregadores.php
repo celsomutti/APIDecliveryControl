@@ -6,7 +6,7 @@
     if(isset($_POST['cadastro']))
     {
         // Innitialize Variable
-        $cpf = $_POST['cadastro'];
+        $cadastro = $_POST['cadastro'];
 
         // Query database for row exist or not
         $sql = 'SELECT COD_ENTREGADOR from tbcodigosentregadores 
