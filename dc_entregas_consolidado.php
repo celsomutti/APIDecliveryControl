@@ -15,7 +15,7 @@
           count(tbentregas.num_nossonumero) as qtd_entregas, tbentregas.num_extrato, tbentregas.des_tipo_peso as des_tipo  
           from tbentregas
           where tbentregas.cod_entregador in (' . $entregador . ') and tbentregas.dat_baixa between "' . $dataini . '" and 
-          "' . $datafim . '" group by tbentregas.cod_cliente_empresa, tbentregas.cod_entregador, tbentregas.val_verba_entregador, tbentregas.des_tipo_peso;';
+          "' . $datafim . '" group by tbentregas.cod_cliente_empresa, tbentregas.val_verba_entregador, tbentregas.des_tipo_peso;';
           $stmt = $conn->prepare($sql);
           $stmt->execute();
           if($stmt->rowCount())

@@ -7,9 +7,8 @@
      {
 		  // Innitialize Variable
          $entregador = $_POST['entregador'];
-         $ano = $_POST['ano'];
-         $mes = $_POST['mes'];
-         $quinzena = $_POST['quinzena'];
+         $dataini = $_POST['dataini'];
+         $datafim = $_POST['datafim'];
 		  
 		  // Query database for row exist or not
           $sql = 'SELECT id_extrato,
@@ -36,8 +35,8 @@
           val_total_empresa,
           cod_cliente,
           dat_credito,
-          des_unique_key FROM expressas_extrato WHERE cod_entregador in (' . $entregador . ') and num_ano = ' . $ano . ' and 
-          num_mes = ' . $mes . ' and num_quinzena = '. $quinzena . ' order by val_verba';
+          des_unique_key FROM expressas_extrato WHERE cod_entregador in (' . $entregador . ') and dat_inicio = "' . $dataini . '" and 
+          dat_final = "' . $datafim . '" order by cod_cliente, val_verba';
           $stmt = $conn->prepare($sql);
           
           $stmt->execute();
