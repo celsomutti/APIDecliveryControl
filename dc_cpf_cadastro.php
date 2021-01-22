@@ -3,17 +3,17 @@
     include 'dc_config.php';
 
     // Check whether username or password is set from android	
-    if(isset($_POST['cadastro']))
+    if(isset($_POST['cpf']))
     {
         // Innitialize Variable
-        $cadastro = $_POST['cadastro'];
+        $cpf = $_POST['cpf'];
 
         // Query database for row exist or not
-        $sql = 'SELECT COD_ENTREGADOR from tbcodigosentregadores 
-        where COD_CADASTRO = :cadastro and dom_ativo = 1;';
+        $sql = 'SELECT cod_cadastro, des_razao_social from tbentregadores 
+        where num_cnpj = :cpf and cod_status not in (2,3,4);';
 
         $stmt = $conn->prepare($sql);
-        $stmt->bindParam(':cadastro', $cadastro, PDO::PARAM_STR);
+        $stmt->bindParam(':cpf', $cpf, PDO::PARAM_STR);
         $stmt->execute();
         if($stmt->rowCount())
         {
