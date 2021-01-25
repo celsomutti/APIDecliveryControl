@@ -12,6 +12,7 @@
         $sql = 'SELECT COD_ENTREGADOR from tbcodigosentregadores 
         where COD_CADASTRO = :cadastro and dom_ativo = 1;';
 
+        $conn->exec("set names utf8");
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':cadastro', $cadastro, PDO::PARAM_STR);
         $stmt->execute();
