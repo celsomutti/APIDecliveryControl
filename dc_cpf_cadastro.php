@@ -10,7 +10,7 @@
 
         // Query database for row exist or not
         $sql = 'SELECT cod_cadastro, des_razao_social from tbentregadores 
-        where num_cnpj = :cpf and cod_status in (2,3,4);';
+        where num_cnpj = :cpf and cod_status in (0,1,5);';
 
         $conn->exec("set names utf8");
         $stmt = $conn->prepare($sql);
