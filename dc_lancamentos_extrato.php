@@ -1,7 +1,7 @@
 <?php
 
     include 'dc_config.php';
-	
+	ini_set('default_charset','UTF-8');
 	// Check whether username or password is set from android	
     if(isset($_POST['extratos']))
     {
@@ -12,7 +12,7 @@
         $sql = 'SELECT tblancamentos.des_lancamento, tblancamentos.dat_lancamento, tblancamentos.des_tipo,  
         tblancamentos.val_lancamento 
         from tblancamentos 
-        where tblancamentos.num_extrato = :extratos';
+        where tblancamentos.num_extrato in (' . $extratos . ');';
 
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':extratos', $extratos, PDO::PARAM_STR);
