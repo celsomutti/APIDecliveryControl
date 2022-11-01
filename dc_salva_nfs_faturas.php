@@ -6,7 +6,7 @@ ini_set('default_charset','UTF-8');
   {
    // Innitialize Variable
    $cadastro = $_POST['cadastro'];
-   $dataVencimento = $_POST['data'];
+   $dataVencimento = $_POST['dataVencimento'];
    $arquivo = $_POST['arquivo'];
    $localizacao = $_POST['localizacao'];
    $aceite = 0;
@@ -24,8 +24,7 @@ ini_set('default_charset','UTF-8');
    $stmt->bindParam(':nom_arquivo', $arquivo);
    $stmt->bindParam(':des_localizacao_arquivo', $localizacao);
    $stmt->bindParam(':dom_aceite', $aceite);
-   $stmt->bindParam(':dom_credito', $dataGravacao);
-   $stmt->bindParam(':nom_usuario', $credito);
+   $stmt->bindParam(':dom_credito', $credito);
    $stmt->bindParam(':dat_envio', $dataEnvio);
    if ($stmt->execute())
    {
