@@ -17,7 +17,7 @@
                   from tbentregas
                   where tbentregas.cod_entregador in (' . $entregador . ') and tbentregas.dat_baixa between "' . $dataini . '" and 
                   "' . $datafim . '" group by tbentregas.cod_cliente_empresa, 
-                  tbentregas.dat_baixa, tbentregas.des_tipo_peso;';
+                  tbentregas.dat_baixa, tbentregas.des_tipo_peso order by tbentregas.dat_baixa;';
           $stmt = $conn->prepare($sql);
           $stmt->execute();
           if($stmt->rowCount())
