@@ -12,7 +12,7 @@
         $sql = 'select tbextravios.des_extravio, tbextravios.num_nossonumero, tbextravios.cod_entregador,  
         tbextravios.val_total 
         from tbextravios
-        where tbextravios.num_extrato in (' . $extratos . ');';
+        where tbextravios.num_extrato in (:extratos);';
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':extratos', $extratos, PDO::PARAM_STR);
         $stmt->execute();
