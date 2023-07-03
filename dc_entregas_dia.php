@@ -14,7 +14,8 @@
           $sql = 'select tbentregas.cod_cliente_empresa as cod_cliente, 
                   crm_clientes.nom_fantasia as nom_cliente, 
                   tbentregas.dat_baixa as dat_baixa, count(tbentregas.num_nossonumero) as qtd_entregas, 
-                  tbentregas.des_tipo_peso as des_tipo  
+                  tbentregas.des_tipo_peso as des_tipo, 
+                  sum(tbentregas.val_verba_entregador) as val_verba  
                   from tbentregas
                   inner join crm_clientes
                   on crm_clientes.cod_cliente = tbentregas.cod_cliente_empresa
